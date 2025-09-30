@@ -26,6 +26,5 @@ export abstract class Material implements IBibliotecaItem {
     this._disponible = valor;
   }
 
-  // Fuerza polimorfismo en las clases hijas
   abstract mostrarInfo(): string;
 }
