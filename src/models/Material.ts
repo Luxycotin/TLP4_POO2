@@ -1,31 +1,32 @@
-import type { IBibliotecaItem } from "../interfaces/IBibliotecaItem.js";
+import type { IBibliotecItem } from "../interfaces/IBibliotecaItem.js";
 
-export abstract class Material implements IBibliotecaItem {
-  protected _id: string;
+export abstract class Material implements IBibliotecItem {
+
+  public readonly id: number;
   public titulo: string;
   public autor: string;
 
-  // Encapsulamiento de disponibilidad
-  private _disponible = true;
 
-  constructor(id: string, titulo: string, autor: string) {
-    this._id = id;
-    this.titulo = titulo;
-    this.autor = autor;
-  }
+protected _disponible: boolean;
 
-  get id(): string {
-    return this._id;
-  }
+constructor (id: number, titulo: string, autor :string, _disponible: true ) {
 
-  get disponible(): boolean {
-    return this._disponible;
-  }
+  this.id = id,
+  this.titulo = titulo,
+  this.autor = autor,
+  this._disponible = _disponible
+}
 
-  set disponible(valor: boolean) {
-    this._disponible = valor;
-  }
 
-  // Fuerza polimorfismo en las clases hijas
-  abstract mostrarInfo(): string;
+get disponible(): boolean {
+  return this._disponible
+
+}
+
+set disponible(valor: boolean) {
+ this._disponible = valor
+}
+
+abstract mostrarInfo(): void;
+
 }

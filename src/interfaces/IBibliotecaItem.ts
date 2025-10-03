@@ -1,6 +1,6 @@
-export interface IBibliotecaItem {
-  readonly id: string;
+export interface IBibliotecItem {
+  readonly id: number;
   titulo: string;
   autor: string;
-  mostrarInfo(): string;
+  mostrarInfo(): void;
 }

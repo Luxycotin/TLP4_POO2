@@ -1,23 +1,28 @@
 import { Material } from "./Material.js";
 
-export class Libro extends Material {
-  paginas: number;
-  genero?: string;
 
-  constructor(
-    id: string,
-    titulo: string,
-    autor: string,
-    paginas: number,
-    genero?: string
-  ) {
-    super(id, titulo, autor);
+class Libro extends Material {
+
+  public paginas: number;
+  public genero?: string;
+
+  contructor (id: number, titulo: string, autor: string, paginas: number, genero?: string ) {
+  
+   super(id, titulo, autor);
     this.paginas = paginas;
     this.genero = genero;
+  }  
+
+  override mostrarInfo(): void{
+    
+    console.log(
+      `Libro #${this.id}: "${this.titulo}" de ${this.autor} — ${this.paginas} págs` +
+      (this.genero ? ` — Género: ${this.genero}` : "") +
+      `. Disponible: ${this.disponible ? "Sí" : "No"}`
+    );
   }
 
-  override mostrarInfo(): string {
-    const g = this.genero ? ` | Género: ${this.genero}` : "";
-    return `📘 Libro [${this.id}] "${this.titulo}" de ${this.autor} | Páginas: ${this.paginas}${g} | Disponible: ${this.disponible}`;
-  }
+
+
+
 }
